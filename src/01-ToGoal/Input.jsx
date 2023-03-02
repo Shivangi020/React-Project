@@ -1,22 +1,12 @@
 import React, { useContext, useState } from "react";
 import { GoalGlobalData } from "./ToGoal";
-import { addLeadingZeros, dateFormatter } from "./functions";
+
 
 function Input() {
   const { goals, setGoals } = useContext(GoalGlobalData);
-  let currentDatetime = new Date();
-  let formattedDate =
-    currentDatetime.getFullYear() +
-    "-" +
-    addLeadingZeros(currentDatetime.getMonth() + 1) +
-    "-" +
-    addLeadingZeros(currentDatetime.getDate());
-
   const [inputValue, setInputValue] = useState({
     id: "",
     goal: "",
-    posted_date: new Date().toLocaleDateString(),
-    due_date: new Date().toLocaleDateString(),
     isCompleted: false,
   });
 
@@ -27,21 +17,17 @@ function Input() {
     } else {
       alert("Please write your goal");
     }
-    localStorage.setItem('goals',goals)
     setInputValue({ ...inputValue, goal: "" });
   };
 
   const handleInput = (e) => {
+    const uniqueID = Math.floor(Math.random()*100) + Date.now()+goals.length
+ 
     setInputValue({
       ...inputValue,
       goal: e.target.value,
-      id: inputValue.goal.length,
+      id: uniqueID,
     });
-  };
-
-  const handledate = (e) => {
-    const due_date = dateFormatter(e.target.value);
-    setInputValue({ ...inputValue, due_date: due_date });
   };
 
   return (
@@ -53,14 +39,6 @@ function Input() {
         onChange={handleInput}
         value={inputValue.goal}
       />
-      <i className="date-in"></i>
-      <input
-        type="date"
-        className="input-date"
-        onChange={handledate}
-        min={formattedDate}
-      ></input>
-      <label className="date-label"></label>
       <button type="submit" className="btn">
         Add
       </button>

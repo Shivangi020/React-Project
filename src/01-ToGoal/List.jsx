@@ -6,7 +6,7 @@ import { GoalGlobalData } from "./ToGoal";
 
 function List() {
   const {goals} = useContext(GoalGlobalData)
-  console.log(goals.length)
+ 
   return (
     <div className="list-cn">
   {

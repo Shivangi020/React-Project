@@ -2,8 +2,8 @@ import React from 'react'
 
 function EmptyList() {
   return (
-    <div>
-        No Goals Yet
+    <div className='empty-list-cn'>
+        No Goals 
     </div>
   )
 }
