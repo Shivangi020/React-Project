@@ -9,13 +9,13 @@ export const GoalGlobalData = createContext();
 function ToGoal() {
     const [goals ,setGoals] = useState([
         {
-            id :(new Date().getTime()).toString(36),
+            id :0,
             goal:'Buy Milk and tea',
             posted_date : new Date().toLocaleDateString(),
             due_date:'17/Feb/2023',
         },
         {
-            id :(new Date().getTime()).toString(36),
+            id :1,
             goal:'Complete Project',
             posted_date : new Date().toLocaleDateString(),
             due_date:'18/Feb/2023',

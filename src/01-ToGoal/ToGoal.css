@@ -179,7 +179,9 @@
     height: 60px;
     align-items: center;
 }
-
+.goal-label-linethrough{
+    text-decoration: line-through;
+}
 .goal-label{
     flex: 2;
     height: 100%;
@@ -204,12 +206,28 @@
     transition: 0.3ms;
 }
 .date-cn{
+    position: relative;
     display: flex;
     margin-top: 2px;
     font-size: .8rem;
 }
 .date-i{
     cursor: pointer;
+}
+
+.date-i::before{
+    content: 'i';
+    display: inline-flex;
+    width: 4px;
+    height: 4px;
+    padding: 5px;
+    border-radius: 100px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    margin-right: 5px;
+    font-size: .8em;
 }
 
 .edit-i::before{

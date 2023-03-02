@@ -21,8 +21,3 @@ function App() {
 }
 
 export default App;
-
-
-{/* <Route path="/job" element={<Job/>}></Route> */}
-{/* <Route path="/search" element={<Search/>}></Route> */}
-{/* <Route path="/filter" element={ <Filter/>}></Route> */}

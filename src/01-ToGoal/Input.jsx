@@ -1,51 +1,71 @@
-import React ,{useContext, useState}from 'react'
-import { GoalGlobalData } from './ToGoal'
+import React, { useContext, useState } from "react";
+import { GoalGlobalData } from "./ToGoal";
+import { addLeadingZeros, dateFormatter } from "./functions";
 
 function Input() {
-  const {goals , setGoals} = useContext(GoalGlobalData)
+  const { goals, setGoals } = useContext(GoalGlobalData);
+  let currentDatetime = new Date();
+  let formattedDate =
+    currentDatetime.getFullYear() +
+    "-" +
+    addLeadingZeros(currentDatetime.getMonth() + 1) +
+    "-" +
+    addLeadingZeros(currentDatetime.getDate());
 
-  const [inputValue ,setInputValue] = useState({
-    id :(new Date().getTime()).toString(36),
-    goal:'',
-    posted_date : new Date().toLocaleDateString(),
-    due_date:new Date().toLocaleDateString(),
-  })
-  
+  const [inputValue, setInputValue] = useState({
+    id: "",
+    goal: "",
+    posted_date: new Date().toLocaleDateString(),
+    due_date: new Date().toLocaleDateString(),
+    isCompleted: false,
+  });
 
-  const handleFormSubmit = (e)=>{
-         e.preventDefault();
-         setGoals([...goals,inputValue])
-         setInputValue({...inputValue,goal:'' })
-  }
-
-  const handleInput = (e)=>{
-     setInputValue({...inputValue,goal:e.target.value})
-  }
-  var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
-  const handledate= (e) =>{
-        let exact_due_date = e.target.value
-        let due_date_list = exact_due_date.split('-')
-        let month = Number(due_date_list[1]-1)
-        let  due_date = `${due_date_list[2]}/${months[month]}/${due_date_list[0]}`
-        console.log(due_date)
-        setInputValue({...inputValue,due_date:due_date})
-  }
-  function addLeadingZeros(n) {
-    if (n <= 9) {
-      return "0" + n;
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    if (inputValue.goal.trim()) {
+      setGoals([...goals, inputValue]);
+    } else {
+      alert("Please write your goal");
     }
-    return n
-  }
-  let currentDatetime = new Date()
-  let formattedDate = currentDatetime.getFullYear() + "-" + addLeadingZeros(currentDatetime.getMonth() + 1) + "-" + addLeadingZeros(currentDatetime.getDate())
-  
+    localStorage.setItem('goals',goals)
+    setInputValue({ ...inputValue, goal: "" });
+  };
+
+  const handleInput = (e) => {
+    setInputValue({
+      ...inputValue,
+      goal: e.target.value,
+      id: inputValue.goal.length,
+    });
+  };
+
+  const handledate = (e) => {
+    const due_date = dateFormatter(e.target.value);
+    setInputValue({ ...inputValue, due_date: due_date });
+  };
+
   return (
-    <form className="form" type='submit' onSubmit={handleFormSubmit}>
-    <input type="text" className="form-field" placeholder="Write your goals" onChange={handleInput} value={inputValue.goal}/>
-    <i className='date-in'></i> <input type='date' className='input-date' onChange={handledate} min={formattedDate}></input><label className='date-label'>{inputValue.due_date}</label>
-    <button type="submit" className="btn" >Add</button>
-</form>
-  )
+    <form className="form" type="submit" onSubmit={handleFormSubmit}>
+      <input
+        type="text"
+        className="form-field"
+        placeholder="Write your goals"
+        onChange={handleInput}
+        value={inputValue.goal}
+      />
+      <i className="date-in"></i>
+      <input
+        type="date"
+        className="input-date"
+        onChange={handledate}
+        min={formattedDate}
+      ></input>
+      <label className="date-label"></label>
+      <button type="submit" className="btn">
+        Add
+      </button>
+    </form>
+  );
 }
 
-export default Input
+export default Input;
