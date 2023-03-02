@@ -14,7 +14,6 @@ function App() {
           <Route path="/" element={<Links/>}></Route>
           <Route path="/togoal" element={<ToGoal/>} ></Route>
       </Routes>
-
     </GlobalData.Provider>
     </Router>
   );

@@ -7,20 +7,7 @@ import {SiCheckmarx} from 'react-icons/si'
 export const GoalGlobalData = createContext();
 
 function ToGoal() {
-    const [goals ,setGoals] = useState([
-        {
-            id :0,
-            goal:'Buy Milk and tea',
-            posted_date : new Date().toLocaleDateString(),
-            due_date:'17/Feb/2023',
-        },
-        {
-            id :1,
-            goal:'Complete Project',
-            posted_date : new Date().toLocaleDateString(),
-            due_date:'18/Feb/2023',
-        }
-    ])
+    const [goals ,setGoals] = useState([])
 
   return (
     <GoalGlobalData.Provider value={{goals,setGoals}}>
