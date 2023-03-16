@@ -12,7 +12,7 @@ function Card({navigateHandler}) {
             <img src={goalThumbnail} alt='Goal'></img>
         </div>
         <div className='detail-cn'>
-            <div className='app-title'>To Do</div>
+            <div className='app-title'>To-Goal</div>
         </div>
     </div>
   )

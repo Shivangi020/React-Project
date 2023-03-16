@@ -12,26 +12,17 @@ function GoalList() {
     setGoals(newGoals)
   };
 
-  const handleCheckbox = (e,index) =>{
-    const checkedGoal = [...goals]
-    if(e.target.checked){
-       checkedGoal.map((item)=>{
-        if(item.id === index){
-          item.isCompleted = true
-        }
-        return item
-       })
-  
-    }else{
-      checkedGoal.map((item)=>{
-        if(item.id === index){
-          item.isCompleted = false
-        }
-        return item
-      })
-    }
-    setGoals(checkedGoal)
+ 
+  const handleCheckbox = (e,index) => {
+    const updatedGoals = goals.map((item) => {
+      if(item.id === index) {
+        return {...item, isCompleted: e.target.checked}
+      }
+      return item
+    })
+    setGoals(updatedGoals)
   }
+  
 
   return (
     <ul className="list">
