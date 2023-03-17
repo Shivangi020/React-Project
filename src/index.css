@@ -6,7 +6,7 @@
 body {
   margin: 0;
   font-family: 'Open Sans', sans-serif;
-  height: 100vh;
+  /* height: 100vh; */
   background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
 }
 

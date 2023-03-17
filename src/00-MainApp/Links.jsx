@@ -16,10 +16,10 @@ function Links() {
         <h1>Beginner Projects</h1>
       </header>
       <section className="cards">
-       <Card navigateHandler={navigateHandler}/>
-       <Card/>
-       <Card/>
-       <Card/>
+       <Card navigateHandler={navigateHandler} path='/togoal' title='To-Goal'/>
+       <Card navigateHandler={navigateHandler} path='/ourtour' title='Our Tour'/>
+       <Card title='UnKnown'/>
+       <Card title='UnKnown'/>
       </section>
       <footer>
         Made by Shivangi Singh
