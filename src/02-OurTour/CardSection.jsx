@@ -1,21 +1,25 @@
 import React, { useContext } from "react";
-import TourCard from "./Card";
+import TourCard from "./TourCard";
 import Loading from "./Loading";
 import Error from "./Error";
 import useFetch from "./useFetch";
 import { TourGlobalData } from "./TourMainPage";
 
+
 function CardSection() {
-  const { isLoading, error } = useFetch(
+  const { isLoading, error} = useFetch(
     "https://course-api.com/react-tours-project"
   );
-  const { tour, setTour } = useContext(TourGlobalData);
+  const { tour, setTour ,setRefresh } = useContext(TourGlobalData);
 
   const deleteAction = (index) => {
     console.log(index);
     const newTourList = tour.filter((tour) => {
       return tour.id !== index;
     });
+    if(newTourList.length <1){
+      setRefresh(true)
+    }
     setTour(newTourList);
   };
 
