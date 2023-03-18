@@ -4,7 +4,7 @@ import { TourGlobalData } from "./TourMainPage";
 const useFetch = (url)=>{
  const [isLoading ,setIsLoading] = useState(true);
  const [error,setError] = useState(false)
- const {tour,setTour} = useContext(TourGlobalData)
+ const {setTour} = useContext(TourGlobalData)
 
  useEffect(()=>{
   setIsLoading(true)
@@ -16,14 +16,14 @@ const useFetch = (url)=>{
       setTour(apiData)
       setIsLoading(false)
     }catch(e){
-         setError(true)
-         setIsLoading(false)
+    setError(true)
+    setIsLoading(false)
     }
   }
   fetchData()
  },[url])
 
- return {isLoading,error,tour}
+ return {isLoading,error}
 }
 
 

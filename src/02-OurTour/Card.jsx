@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-function TourCard({image,price,info,name}) {
+function TourCard({id,image,price,info,name,deleteAction}) {
   return (
     <div className='tour-card'>
         <section className='tour-image'>
@@ -13,7 +13,7 @@ function TourCard({image,price,info,name}) {
             <article className='tour-info'>
                 <p>{info}</p>
             </article>
-            <button className='tour-delete-btn'>Not Interested</button>
+            <button className='tour-delete-btn' onClick={()=>deleteAction(id)}>Not Interested</button>
         </section>
     </div>
   )
