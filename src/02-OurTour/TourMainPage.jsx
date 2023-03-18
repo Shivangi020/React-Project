@@ -1,21 +1,20 @@
-import React from 'react'
+import React ,{useState , createContext} from 'react'
+import CardSection from './CardSection';
 import './Tour.css'
-import TourCard from './TourCard'
+
+
+export const TourGlobalData = createContext()
 
 function TourMainPage() {
+  const [tour ,setTour] = useState(null);
   return (
+    <TourGlobalData.Provider value={{tour,setTour}}>
     <div className='tour-main-page'>
        <div className='tour-heading'>Our Tours</div>
        <hr className='heading-hr'></hr>
-       <div className='tour-cards'>
-        <TourCard/>
-        <TourCard/>
-        <TourCard/>
-        <TourCard/>
-       </div>
+       <CardSection/>
     </div>
- 
-    
+    </TourGlobalData.Provider>
   )
 }
 

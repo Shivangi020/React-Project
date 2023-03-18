@@ -2,6 +2,7 @@ import React from "react";
 import Card from "./Card";
 import { useNavigate } from 'react-router-dom'
 
+
 function Links() {
   const navigate = useNavigate()
   const navigateHandler = (path)=>{

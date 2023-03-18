@@ -18,7 +18,7 @@ main{
     width: 300px;
     height: 310px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
+    transition: all 0.5s;
     background-color: white;
     border-radius: 5px;
     overflow: hidden;
@@ -26,7 +26,7 @@ main{
 }
 
 .card-cn:hover{
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    transform: scale(1.1);
 }
 .image-cn{
     width: 100%;
@@ -49,7 +49,8 @@ main{
 .app-title{
     padding-top: 10px;
     font-size: 1.6em;
-    font-weight: 300;
+    font-weight: 400;
+    color: #656565;
 }
 
 .horizontal-css{
@@ -63,5 +64,4 @@ footer{
     font-weight: 200;
     color: #f0f0f0;
     background-color: black;
-    height: 55px;
 }
