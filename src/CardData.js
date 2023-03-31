@@ -4,7 +4,7 @@ import pomodoro from './Image/pomodoro.png'
 
 export const CardData = [
     {
-        title:'Our Tour',
+        title:'Our-Tour',
         link:'https://my-tour-list.netlify.app/',
         thumbnail :tourThumbnail
     },
@@ -14,7 +14,7 @@ export const CardData = [
         thumbnail :moneyMiserThumbnail
     },
     {
-        title:'Our Tour',
+        title:'Pomodoro-Me',
         link:'https://pomodoro-me.netlify.app/',
         thumbnail :pomodoro
     }
