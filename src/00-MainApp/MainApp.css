@@ -59,9 +59,22 @@ main{
 }
 
 footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 70px;
     text-align: center;
     padding-top: 10px;
     font-weight: 200;
     color: #f0f0f0;
     background-color: black;
 }
+
+.github-icon{
+    font-size: 1.5em;
+    cursor: pointer;
+    margin-bottom: 5px;
+    color: rgb(255, 251, 251);
+}
+
