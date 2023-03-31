@@ -1,13 +1,11 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import './MainApp.css'
 
-function Card({navigateHandler,path,title,thumbnail}) {
- 
 
+
+function Card({path,title,thumbnail}) {
   return (
-    <Link to='https://money-miser.netlify.app/'>
-    <div className='card-cn' onClick={()=>navigateHandler(path)}>
+    <a href={path} className='card-link'>
+    <div className='card-cn'>
         <div className='image-cn'>
             <img src={thumbnail} alt='Goal'></img>
         </div>
@@ -15,7 +13,7 @@ function Card({navigateHandler,path,title,thumbnail}) {
             <div className='app-title'>{title}</div>
         </div>
     </div>
-    </Link>
+    </a>
 
   )
 }
